@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://springexample.com/soap"
+           targetNamespace="http://springexample.com/soap" elementFormDefault="qualified">
+
+    <xs:element name="sumaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="N1" type="xs:int"/>
+                <xs:element name="N2" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="sumaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Resultado" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="multiplicacionRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="N1" type="xs:double"/>
+                <xs:element name="N2" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="multiplicacionResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Resultado" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+      <xs:element name="listaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Cantidad" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="listaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Resultado" type="tns:ListaNumeros" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+      <xs:complexType name="ListaNumeros">
+        <xs:sequence>
+            <xs:element name="campos" maxOccurs="unbounded" minOccurs="1">
+                <xs:complexType>
+                    <xs:attribute name="id" type="xs:int"/>
+                    <xs:attribute name="valor" type="xs:int"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
